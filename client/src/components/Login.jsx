@@ -70,7 +70,6 @@ const responseGoogle = (res) => {
           </div>
         </div>
       </div> 
-		{/* ) : ( <div>Logged In</div> ) } */}
       {/* <div>
         {user ? (
           <div>Logged In</div>
