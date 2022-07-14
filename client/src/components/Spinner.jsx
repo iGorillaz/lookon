@@ -1,13 +1,13 @@
 import React from "react";
-import Circles from "react-loader-spinner";
+import { Grid }  from "react-loader-spinner";
 
 const Spinner = ({ message }) => {
   return (
     <div className="flex flex-col justify-center items-center w-full h-full">
-      <Circles
+      <Grid
         type="Circles"
-        color="#00BFFF"
-        height={50}
+        color="#0000ff"
+        height={65}
         width={200}
         className="m-5"
       />
