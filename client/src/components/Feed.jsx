@@ -7,35 +7,34 @@ import { Spinner, MasonryLayout } from "../components";
 import { feedQuery, searchQuery } from "../utils/data";
 
 const Feed = () => {
+  const [pins, setPins] = useState();
   const [loading, setLoading] = useState(false);
-  const [pins, setPins] = useState(null);
   const { categoryId } = useParams();
 
   useEffect(() => {
-    setLoading(true);
-
     if (categoryId) {
+      setLoading(true);
       const query = searchQuery(categoryId);
-
       client.fetch(query).then((data) => {
         setPins(data);
         setLoading(false);
       });
     } else {
+      setLoading(true);
+
       client.fetch(feedQuery).then((data) => {
         setPins(data);
         setLoading(false);
       });
     }
   }, [categoryId]);
-
-  if (loading)
-    return <Spinner message="lookon our spinner :)" />;
-  return (
-  <div>
-	{pins && <MasonryLayout pins={pins} />}
-	</div>
-  )
+  const ideaName = categoryId || "new";
+  if (loading) {
+    return (
+      <Spinner message={`We are adding ${ideaName} ideas to your feed!`} />
+    );
+  }
+  return <div>{pins && <MasonryLayout pins={pins} />}</div>;
 };
 
 export default Feed;
