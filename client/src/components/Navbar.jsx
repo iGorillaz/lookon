@@ -9,7 +9,7 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
     return (
       <div className="flex gap-2 md:gap-5 w-full mt-5 pb-7 ">
         <div className="flex justify-start items-center w-full px-2 rounded-md bg-white border-none outline-none focus-within:shadow-sm">
-          <IoMdSearch fontSize={21} className="ml-1" />
+          <IoMdSearch color='blue' fontSize={21} className="ml-1" />
           <input
             type="text"
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -22,7 +22,7 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
         <div className="flex gap-3 ">
           <Link
             to="/create-pin"
-            className="bg-black text-white rounded-lg w-12 h-12 md:w-14 md:h-12 flex justify-center items-center">
+            className="bg-indigo-600 text-white rounded-lg w-12 h-12 md:w-14 md:h-12 flex justify-center items-center">
             <IoMdAdd />
           </Link>
           <Link to={`user-profile/${user?._id}`} className="hidden md:block">

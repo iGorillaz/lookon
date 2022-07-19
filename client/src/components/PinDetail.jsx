@@ -11,8 +11,8 @@ import Spinner from "./Spinner";
 
 const PinDetail = ({ user }) => {
   const { pinId } = useParams();
-  const [pins, setPins] = useState(null);
-  const [pinDetail, setPinDetail] = useState(null);
+  const [pins, setPins] = useState();
+  const [pinDetail, setPinDetail] = useState();
   const [comment, setComment] = useState("");
   const [addingComment, setAddingComment] = useState(false);
 
@@ -22,7 +22,6 @@ const PinDetail = ({ user }) => {
     if (query) {
       client.fetch(query).then((data) => {
         setPinDetail(data[0]);
-        console.log(data);
         if (data[0]) {
           query = pinDetailMorePinQuery(data[0]);
           client.fetch(query).then((res) => {
@@ -155,7 +154,17 @@ const PinDetail = ({ user }) => {
           </div>
         </div>
       )}
-      {pins?.length > 0 ? (
+		 {pins?.length > 0 && (
+        <h2 className="text-center font-bold text-2xl mt-8 mb-4">
+          More like this
+        </h2>
+      )}
+      {pins ? (
+        <MasonryLayout pins={pins} />
+      ) : (
+        <Spinner message="Loading more pins" />
+      )}
+      {/* {pins?.length > 0 ? (
         <>
           <h2 className="text-center font-bold text-2xl mt-8 mb-4">
             More like this
@@ -164,7 +173,7 @@ const PinDetail = ({ user }) => {
         </>
       ) : (
         <Spinner message="Loading more pins" />
-      )}
+      )} */}
     </>
   );
 };
