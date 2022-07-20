@@ -82,9 +82,6 @@ const PinDetail = ({ user }) => {
                 <a
                   href={`${pinDetail.image?.asset?.url}?dl=`}
                   download
-                  // onClick={(e) => {
-                  //   e.stopPropagation();
-                  // }}
                   className="bg-white w-9 h-9 p-2 rounded-full flex items-center justify-center text-dark text-xl opacity-75 hover:opacity-100 hover:shadow-md outline-none">
                   <MdDownloadForOffline />
                 </a>
@@ -146,7 +143,7 @@ const PinDetail = ({ user }) => {
               />
               <button
                 type="button"
-                className="bg-red-500 text-white rounded-full px-6 py-2 font-semibold text-base outline-none"
+                className="bg-indigo-600 text-white rounded-full px-6 py-2 font-semibold text-base outline-none"
                 onClick={addComment}>
                 {addingComment ? "Posting..." : "Post"}
               </button>
