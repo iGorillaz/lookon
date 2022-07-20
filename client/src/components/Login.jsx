@@ -26,7 +26,6 @@ const responseGoogle = (res) => {
 	.then(() => {
 		navigate('/', { replace: true })
 	})
-	console.log(jwt_decode(res.credential))
 }
 
   return (
