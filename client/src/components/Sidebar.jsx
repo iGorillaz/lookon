@@ -45,11 +45,11 @@ const Sidebar = ({ closeToggle, user }) => {
                 isActive ? isActiveStyle : isNotActiveStyle
               }
               onClick={handleCloseSidebar}
-              key={`${category.name}`}>
+              key={category.name}>
               <img
                 src={category.image}
                 className="w-8 h-8 rounded-full shadow-sm"
-					 alt='category-img'
+					 alt='category'
               />
               {category.name}
             </NavLink>

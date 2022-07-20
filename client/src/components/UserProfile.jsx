@@ -82,12 +82,14 @@ const UserProfile = () => {
               <div className="flex flex-col justify-center items-center">
                 <button
                   type="button"
-                  className=" border-2 p-2 rounded-full cursor-pointer outline-none shadow-md"
+                  className=" border-2 bg-white p-2 rounded-full cursor-pointer outline-none shadow-md"
                   onClick={() => {
-							logout();
+                    logout();
                   }}>
                   <AiOutlineLogout color="indigo" fontSize={25} />
-							<p className="font-bold text-2xl text-center mt-3 text-white">exit</p>
+                  <p className="font-bold text-1xl text-center mt-3 text-black">
+                    exit
+                  </p>
                 </button>
               </div>
             )}
@@ -118,11 +120,11 @@ const UserProfile = () => {
           </button>
         </div>
 
-        <div className="px-2">
-          <MasonryLayout pins={pins} />
-        </div>
-
-        {pins?.length === 0 && (
+        {pins?.length ? (
+          <div className="px-2">
+            <MasonryLayout pins={pins} />
+          </div>
+        ) : (
           <div className="flex justify-center font-bold items-center w-full text-1xl mt-2">
             No Pins Found!
           </div>
